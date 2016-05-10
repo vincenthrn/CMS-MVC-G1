@@ -1,0 +1,10 @@
+{
+    "name": "vincent/cms-mvc-g1",
+    "authors": [
+        {
+            "name": "Vincent",
+            "email": "vincent.henrion@hetic.net"
+        }
+    ],
+    "require": {}
+}
