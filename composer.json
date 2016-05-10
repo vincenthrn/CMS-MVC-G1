@@ -6,5 +6,11 @@
             "email": "vincent.henrion@hetic.net"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+        }
+    }
 }
