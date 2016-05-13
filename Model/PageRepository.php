@@ -14,7 +14,7 @@ class PageRepository
 
     /**
      * PageRepository constructor.
-     * @param \PDO $PDO
+     * @param \PDO $pdo
      */
     public function __construct(\PDO $PDO)
     {
@@ -55,5 +55,27 @@ class PageRepository
     public function inserer(array $data)
     {
         return 1;
+    }
+
+    /**
+     * @param $slug
+     * @return \stdClass\bool
+     */
+    public function getBySlug($slug)
+    {
+        $sql ="SELECT
+                    `id`,
+                    `slug`,
+                    `body`,
+                    `title`
+                FROM
+                    `teletubbies`
+                WHERE
+                    `slug` = :slug
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchObject();
     }
 }

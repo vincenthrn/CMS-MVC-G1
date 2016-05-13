@@ -7,9 +7,9 @@ class PageController
 {
     private $repository;
 
-    public function __construct(\PDO $pdo)
+    public function __construct(\PDO $PDO)
     {
-        $this->repository = new PageRepository($pdo);
+        $this->repository = new PageRepository($PDO);
     }
 
     public function ajoutAction()
@@ -39,6 +39,18 @@ class PageController
 
     public function displayAction()
     {
-        // action d'affichage de la page en front office
+        $slug = 'teletubbies';
+        if(isset($_GET['p'])){
+            $slug = $_GET['p'];
+        }
+        // en PHP 7
+        // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
+        $page = $this->repository->getBySlug($slug);
+        if(!$page){
+            // 404
+            include "View/404.php";
+            return;
+        }
+        include "View/page-display.php";
     }
 }
