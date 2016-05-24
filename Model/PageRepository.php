@@ -3,7 +3,7 @@ namespace Model;
 
 /**
  * Class PageRepository
- * @package Model
+ * @package model
  */
 class PageRepository
 {
@@ -14,7 +14,7 @@ class PageRepository
 
     /**
      * PageRepository constructor.
-     * @param \PDO $pdo
+     * @param \PDO $PDO
      */
     public function __construct(\PDO $PDO)
     {
@@ -64,12 +64,10 @@ class PageRepository
     public function getBySlug($slug)
     {
         $sql ="SELECT
-                    `id`,
-                    `slug`,
                     `body`,
                     `title`
                 FROM
-                    `teletubbies`
+                    `page`
                 WHERE
                     `slug` = :slug
                 ";
@@ -77,5 +75,18 @@ class PageRepository
         $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchObject();
+    }
+
+    public function get()
+    {
+        $sql ="SELECT
+                    `slug`,
+                    `title`
+                FROM
+                    `page`
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }
