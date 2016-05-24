@@ -87,6 +87,10 @@ class PageRepository
                 ";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll();
+        $data = [];
+        while($row = $stmt->fetchObject()){
+            $data[] = $row;
+        }
+        return $data;
     }
 }

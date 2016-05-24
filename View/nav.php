@@ -8,11 +8,11 @@
                 <?php
                 foreach($navData as $row){
                     $active = '';
-                    if($row['slug'] == $pageCourante) {
+                    if($row->slug == $pageCourante) {
                         $active = ' class="active"';
                     }
                     ?>
-                    <li <?=$active?>><a href="index.php?p=<?=$row['slug']?>"><?=$row['title']?></a></li>
+                    <li <?=$active?>><a href="index.php?p=<?=$row->slug?>"><?=$row->title?></a></li>
                     <?php
                 }
                 ?>
