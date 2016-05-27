@@ -54,7 +54,7 @@ class PageRepository
      */
     public function inserer(array $data)
     {
-        return 1;
+
     }
 
     /**
@@ -77,7 +77,10 @@ class PageRepository
         return $stmt->fetchObject();
     }
 
-    public function get()
+    /**
+     * @return array
+     */
+    public function getNav()
     {
         $sql ="SELECT
                     `slug`,
@@ -87,10 +90,6 @@ class PageRepository
                 ";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
-        $data = [];
-        while($row = $stmt->fetchObject()){
-            $data[] = $row;
-        }
-        return $data;
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 }
