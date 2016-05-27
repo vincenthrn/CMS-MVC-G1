@@ -5,11 +5,15 @@ use Model\PageRepository;
 
 /**
  * Class PageController
- * @author Yann Le Scouarnec <yann.le-scouarnec@hetic.net>
  * @package Controller
  */
 class PageController
 {
+    /**
+     * @var PageRepository
+     */
+    private $repository;
+
     /**
      * PageController constructor.
      * @param \PDO $PDO
@@ -24,6 +28,11 @@ class PageController
      */
     public function ajoutAction()
     {
+        if(count($_POST) === 0){
+            // affiche la form
+        } else{
+            // traite la form
+        }
     }
 
     /**
@@ -54,41 +63,53 @@ class PageController
     {
     }
 
+    public function adminAction()
+    {
+        include "View/admin/admin-page-display.php";
+    }
+
+
     /**
      *
      */
     public function displayAction()
     {
-        // definition d'un slug par defaut (en cas d'appel sans parametre dans l'url)
+        // Definition d'un slug par defaut (en cas d'appel sans parametre dans l'url)
         $slug = 'teletubbies';
-        // recuperation du slug du parametre d'url si present
+
+        // Recuperation du slug du parametre d'url si present
         if(isset($_GET['p'])){
             $slug = $_GET['p'];
             $pageCourante = $_GET['p'];
         }
+
         // en PHP 7
         // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
-        // recuperation les donnees de la page qui correspond au slug
+
+        // Recuperation les donnees de la page qui correspond au slug
         $page = $this->repository->getBySlug($slug);
-        // si il n'y a pas de donnees, erreur 404
+
+        // Si il n'y a pas de donnees, erreur 404
         if($page === false){
-            // 404
             include "View/404.php";
             return;
         }
-        // je dois avoir la nav initailisee pour que la vue la montre
-        $nav = $this->genererLaNav($pageCourante);
 
-        // j'ai des donnees, je le affiche
+        // Initialisation de la nav pour que la vue la montre
+        $nav = $this->generateNav($slug);
+
+
         include "View/page-display.php";
     }
 
-    public function genererLaNav($pageCourante)
+    /**
+     *
+     */
+    public function generateNav($slug)
     {
         ob_start();
-        // generer la nav
 
-        $navData = $this->repository->get();
+        $nav = $this->repository->getNav();
         include "View/nav.php";
 
         $nav = ob_get_clean();
