@@ -28,4 +28,4 @@ switch($action){
         break;
 }
 
-$page->adminAction();
+//$page->displayAction();

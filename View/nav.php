@@ -9,6 +9,9 @@
                 <li class="<?=isActive($row->slug, $slug)?>"><a href="index.php?p=<?= $row->slug ?>"><?= $row->title ?></a></li>
 <?php endforeach; ?>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <a class="navbar-brand" href="./admin">Backoffice</a>
+            </ul>
         </div>
     </div>
 </nav>

@@ -29,7 +29,7 @@ class PageController
     public function ajoutAction()
     {
         if(count($_POST) === 0){
-            // affiche la form
+            include "View/admin/ajout.php";
         } else{
             // traite la form
         }
@@ -40,6 +40,7 @@ class PageController
      */
     public function supprimerAction()
     {
+        echo "supprimer";
     }
 
     /**
@@ -47,6 +48,8 @@ class PageController
      */
     public function modifierAction()
     {
+        echo "modifier";
+
     }
 
     /**
@@ -54,6 +57,8 @@ class PageController
      */
     public function detailsAction()
     {
+        echo "details";
+
     }
 
     /**
@@ -61,12 +66,10 @@ class PageController
      */
     public function listeAction()
     {
-    }
-
-    public function adminAction()
-    {
+        $liste = $this->repository->getList();
         include "View/admin/admin-page-display.php";
     }
+
 
 
     /**
@@ -80,14 +83,15 @@ class PageController
         // Recuperation du slug du parametre d'url si present
         if(isset($_GET['p'])){
             $slug = $_GET['p'];
-            $pageCourante = $_GET['p'];
         }
 
+        var_dump($slug);
         // en PHP 7
         // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
 
         // Recuperation les donnees de la page qui correspond au slug
         $page = $this->repository->getBySlug($slug);
+
 
         // Si il n'y a pas de donnees, erreur 404
         if($page === false){
