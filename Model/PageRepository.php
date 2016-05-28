@@ -58,6 +58,23 @@ class PageRepository
     }
 
     /**
+     * @return mixed
+     */
+    public function getList()
+    {
+        $sql ="SELECT
+                    `id`,
+                    `title`,
+                    `slug`
+                FROM
+                    `page`
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    /**
      * @param $slug
      * @return \stdClass\bool
      */
@@ -75,6 +92,7 @@ class PageRepository
         $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchObject();
+;
     }
 
     /**
