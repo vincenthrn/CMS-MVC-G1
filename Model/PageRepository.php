@@ -31,12 +31,21 @@ class PageRepository
     }
 
     /**
-     * @param int $id
-     * @return bool
+     * @param $id
+     * @return int
      */
-    public function supprimer(int $id)
+    public function supprimer($id)
     {
-        return true;
+        $sql ="DELETE
+                FROM
+                    `page`
+                WHERE
+                    `id` = :id
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id',$id,\PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 
     /**

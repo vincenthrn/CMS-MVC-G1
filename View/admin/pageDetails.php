@@ -47,10 +47,10 @@
     </table>
     <table class="table-bordered table-responsive table">
         <tr>
-            <th colspan="4">Body</th>
+            <th>Body</th>
         </tr>
         <tr>
-            <td colspan="4"><?=$details->body?></td>
+            <td><pre><?= htmlentities($details->body);?></pre></td>
         </tr>
     </table>
     <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/"><button class="btn">Retour</button></a>
