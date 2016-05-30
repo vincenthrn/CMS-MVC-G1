@@ -57,8 +57,11 @@ class PageController
      */
     public function detailsAction()
     {
-        echo "details";
-
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+        }
+        $details = $this->repository->getDetails($id);
+        include "View/admin/pageDetails.php";
     }
 
     /**
@@ -67,9 +70,8 @@ class PageController
     public function listeAction()
     {
         $liste = $this->repository->getList();
-        include "View/admin/admin-page-display.php";
+        include "View/admin/pageList.php";
     }
-
 
 
     /**
@@ -81,17 +83,15 @@ class PageController
         $slug = 'teletubbies';
 
         // Recuperation du slug du parametre d'url si present
+        // en PHP 7
+        // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
         if(isset($_GET['p'])){
             $slug = $_GET['p'];
         }
 
-        var_dump($slug);
-        // en PHP 7
-        // $slug = $_GET['p'] ?? $_POST['p'] ?? 'teletubbies';
 
         // Recuperation les donnees de la page qui correspond au slug
         $page = $this->repository->getBySlug($slug);
-
 
         // Si il n'y a pas de donnees, erreur 404
         if($page === false){
