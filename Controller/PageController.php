@@ -1,6 +1,7 @@
 <?php
 namespace Controller;
 
+use Behat\Mink\Exception\Exception;
 use Model\PageRepository;
 
 /**
@@ -40,7 +41,16 @@ class PageController
      */
     public function supprimerAction()
     {
-        echo "supprimer";
+        if(!isset($_GET['id'])){
+            throw new \Exception('pas d\'id',666);
+        }
+        $id = $_GET['id'];
+        $deleted = $this->repository->supprimer($id);
+        if($deleted === 0){
+            include 'View/404.php';
+        }else{
+            include "View/admin/pageDeleted.php";
+        }
     }
 
     /**
@@ -57,11 +67,16 @@ class PageController
      */
     public function detailsAction()
     {
-        if(isset($_GET['id'])){
-            $id = $_GET['id'];
+        if(!isset($_GET['id'])){
+            throw new \Exception('pas d\'id',666);
         }
+        $id = $_GET['id'];
         $details = $this->repository->getDetails($id);
-        include "View/admin/pageDetails.php";
+        if($details === false){
+            include "View/404.php";
+        } else {
+            include "View/admin/pageDetails.php";
+        }
     }
 
     /**
