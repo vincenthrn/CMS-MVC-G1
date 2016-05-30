@@ -20,7 +20,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">Liste</a></li>
+                <li class="active"><a href="">Détails</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <a class="navbar-brand" href="../index.php">Front</a>
@@ -30,28 +30,30 @@
     </div>
 </nav>
 <div class="container theme-showcase" role="main">
-    <h1>Liste des pages</h1>
+    <h1>Détails de la page</h1>
     <table class="table-bordered table-responsive table">
         <tr>
             <th>ID</th>
             <th>Slug</th>
             <th>Titre</th>
-            <th>Action</th>
+            <th>H1</th>
         </tr>
-<?php foreach($liste as $item): ?>
         <tr>
-            <td><?= $item->id ?></td>
-            <td><?= $item->slug ?></td>
-            <td><?= $item->title ?></td>
-            <td>
-                <a href="index.php?a=details&id=<?= $item->id ?>">Details</a>
-                <a href="index.php?a=modifier&id=<?= $item->id ?>">Modifier</a>
-                <a href="index.php?a=supprimer&id=<?= $item->id ?>">Supprimer</a>
-            </td>
+            <td><?=$id?></td>
+            <td><?=$details->slug?></td>
+            <td><?=$details->title?></td>
+            <td><?=$details->h1?></td>
         </tr>
-<?php endforeach;?>
     </table>
-    <a href="index.php?a=ajouter">Ajouter une page</a>
+    <table class="table-bordered table-responsive table">
+        <tr>
+            <th colspan="4">Body</th>
+        </tr>
+        <tr>
+            <td colspan="4"><?=$details->body?></td>
+        </tr>
+    </table>
+    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/"><button class="btn">Retour</button></a>
 </div>
 </body>
 </html>

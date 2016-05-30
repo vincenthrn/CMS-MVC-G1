@@ -22,15 +22,6 @@ class PageRepository
     }
 
     /**
-     * @param null $id
-     * @return array
-     */
-    public function lister($id = null)
-    {
-        return [];
-    }
-
-    /**
      * @param array $data
      * @return bool
      */
@@ -75,6 +66,28 @@ class PageRepository
     }
 
     /**
+     * @param null $id
+     * @return mixed
+     */
+    public function getDetails($id = null)
+    {
+        $sql ="SELECT
+                    `body`,
+                    `title`,
+                    `slug`,
+                    `h1`
+                FROM
+                    `page`
+                WHERE
+                    `id` = :id
+                ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->bindParam(':id',$id,\PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchObject();
+    }
+
+    /**
      * @param $slug
      * @return \stdClass\bool
      */
@@ -92,7 +105,6 @@ class PageRepository
         $stmt->bindParam(':slug',$slug,\PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchObject();
-;
     }
 
     /**
