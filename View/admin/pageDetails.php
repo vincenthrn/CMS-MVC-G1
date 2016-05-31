@@ -35,25 +35,29 @@
         <tr>
             <th>ID</th>
             <th>Slug</th>
-            <th>Titre</th>
+            <th>Title</th>
             <th>H1</th>
+            <th>Span text</th>
+            <th>Span Class</th>
+            <th>Img</th>
         </tr>
         <tr>
-            <td><?=$id?></td>
-            <td><?=$details->slug?></td>
-            <td><?=$details->title?></td>
-            <td><?=$details->h1?></td>
+            <td><?php if (isset($id)) {
+                    echo $id;
+                } else {
+                    echo $lastInsertId;
+                } ?></td>
+            <td><?= $details->slug ?></td>
+            <td><?= $details->title ?></td>
+            <td><?= $details->h1 ?></td>
+            <td><?= $details->span_text ?></td>
+            <td><?= $details->span_class ?></td>
+            <td><?= $details->img ?></td>
         </tr>
     </table>
-    <table class="table-bordered table-responsive table">
-        <tr>
-            <th>Body</th>
-        </tr>
-        <tr>
-            <td><pre><?= htmlentities($details->body);?></pre></td>
-        </tr>
-    </table>
-    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/"><button class="btn">Retour</button></a>
+    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/">
+        <button class="btn btn-info">Retour</button>
+    </a>
 </div>
 </body>
 </html>

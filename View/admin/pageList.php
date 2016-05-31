@@ -49,14 +49,14 @@
             <td><?= $item->slug ?></td>
             <td><?= $item->title ?></td>
             <td>
-                <a href="index.php?a=details&id=<?= $item->id ?>">Details</a>
-                <a href="index.php?a=modifier&id=<?= $item->id ?>">Modifier</a>
-                <a href="index.php?a=supprimer&id=<?= $item->id ?>">Supprimer</a>
+                <a href="index.php?a=details&id=<?= $item->id ?>" class="btn btn-primary">Details</a>
+                <a href="index.php?a=modifier&id=<?= $item->id ?>" class="btn btn-warning">Modifier</a>
+                <a href="index.php?a=supprimer&id=<?= $item->id ?>" class="btn btn-danger">Supprimer</a>
             </td>
         </tr>
 <?php endforeach; ?>
     </table>
-    <a href="index.php?a=ajouter">Ajouter une page</a>
+    <a href="index.php?a=ajouter" class="btn btn-success">Ajouter une page</a>
 </div>
 </body>
 </html>
