@@ -63,7 +63,7 @@ class PageController
     }
 
     /**
-     * Gère l'affichage des détails d'un entrée de la base
+     * Gère l'affichage des détails d'une entrée de la base
      * dans le backoffice
      */
     public function detailsAction()
