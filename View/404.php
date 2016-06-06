@@ -9,7 +9,7 @@
 <body role="document">
 <div class="container theme-showcase" role="main">
     <div class="jumbotron">
-        <h1>HAHAHHAH T PERDU</h1>
+        <h1>404</h1>
     </div>
 </div>
 </body>

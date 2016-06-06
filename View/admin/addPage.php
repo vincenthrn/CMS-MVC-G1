@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des pages</title>
+    <title>Ajouter une page</title>
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../bootstrap/css/" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">

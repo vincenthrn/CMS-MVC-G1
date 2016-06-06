@@ -27,7 +27,7 @@ class PageRepository
      * @param $id
      * @return bool
      */
-    public function modifier(array $data,$id)
+    public function modifier(array $data, $id)
     {
         $sql = "UPDATE
                     `page`
@@ -42,7 +42,7 @@ class PageRepository
                     `id` = :id
                 ";
         $stmt = $this->PDO->prepare($sql);
-        $stmt->bindParam(':id',$id, \PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
         $stmt->bindParam(':slug', $data['slug'], \PDO::PARAM_STR);
         $stmt->bindParam(':h1', $data['h1'], \PDO::PARAM_STR);
         $stmt->bindParam(':title', $data['title'], \PDO::PARAM_STR);

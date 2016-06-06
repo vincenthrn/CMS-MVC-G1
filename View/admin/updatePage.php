@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des pages</title>
+    <title>Modifier la page</title>
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../bootstrap/css/" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -52,8 +52,8 @@
         <fieldset class="form-group">
             <label for="span_class">span class</label>
             <select class="form-control" id="span_class" name="span_class">
-                <option>label-danger</option>
-                <option>label-success</option>
+                <option value="label-danger" <?=isSelected($details->span_class, "label-danger")?>>label-danger</option>
+                <option value="label-success" <?=isSelected($details->span_class, "label-success")?>>label-success</option>
             </select>
         </fieldset>
         <input type="submit" name="submit" class="btn btn-primary"/>
