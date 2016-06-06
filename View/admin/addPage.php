@@ -26,7 +26,7 @@
     </div>
 </nav>
 <div class="container theme-showcase" role="main">
-    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/"><button class="btn btn-info">Retour</button></a>
+    <a href="../admin/"><button class="btn btn-info">Retour</button></a>
     <h1>Ajouter une page</h1>
     <form action="" method="post">
         <fieldset class="form-group">
@@ -43,7 +43,7 @@
         </fieldset>
         <fieldset class="form-group">
             <label for="img">img</label>
-            <input type="text" class="form-control" id="img" name="img" value="/TeletubbiesMVC2/CMS-MVC-G1/img/three_kittens.jpg" required>
+            <input type="text" class="form-control" id="img" name="img" value="img/three_kittens.jpg" required>
         </fieldset>
         <fieldset class="form-group">
             <label for="span_text">span text</label>

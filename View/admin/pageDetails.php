@@ -55,7 +55,7 @@
             <td><?= $details->img ?></td>
         </tr>
     </table>
-    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/">
+    <a href="../admin/">
         <button class="btn btn-info">Retour</button>
     </a>
 </div>

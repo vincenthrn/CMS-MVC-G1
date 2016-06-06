@@ -26,7 +26,7 @@
     </div>
 </nav>
 <div class="container theme-showcase" role="main">
-    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/"><button class="btn btn-info">Retour</button></a>
+    <a href="../admin/"><button class="btn btn-info">Retour</button></a>
     <h1>Modifier la page</h1>
     <form action="" method="post">
         <fieldset class="form-group">

@@ -36,7 +36,7 @@
             <td>La page d'id <?=$id?> a été suprimée</td>
         </tr>
     </table>
-    <a href="/TeletubbiesMVC2/CMS-MVC-G1/admin/"><button class="btn btn-info">Retour</button></a>
+    <a href="../admin/"><button class="btn btn-info">Retour</button></a>
 </div>
 </body>
 </html>
